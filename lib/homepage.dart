@@ -43,22 +43,10 @@ class _HomePageState extends State<HomePage> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TextButton(
-                onPressed: () {},
-                child: Column(
-                  children: <Widget>[
-                    Image.asset('assets/clock_icon.png'),
-                    SizedBox(height: 16),
-                    const Text(
-                      'Clock',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              buildMenuButton('Clock', 'assets/clock_icon.png'),
+              buildMenuButton('Alarm', 'assets/alarm_icon.png'),
+              buildMenuButton('Timer', 'assets/timer_icon.png'),
+              buildMenuButton('Stopwatch', 'assets/stopwatch_icon.png'),
             ],
           ),
           const VerticalDivider(
@@ -75,6 +63,7 @@ class _HomePageState extends State<HomePage> {
                   const Text(
                     'Clock',
                     style: TextStyle(
+                      fontFamily: 'avenir',
                       color: Colors.white,
                       fontSize: 24,
                     ),
@@ -83,6 +72,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     formattedTime, // Use formattedTime here if needed
                     style: const TextStyle(
+                      fontFamily: 'avenir',
                       color: Colors.white,
                       fontSize: 64,
                     ),
@@ -90,6 +80,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     formattedDate, // Use formattedDate here
                     style: const TextStyle(
+                      fontFamily: 'avenir',
                       color: Colors.white,
                       fontSize: 20,
                     ),
@@ -98,6 +89,7 @@ class _HomePageState extends State<HomePage> {
                   const Text(
                     'Timezone',
                     style: TextStyle(
+                      fontFamily: 'avenir',
                       color: Colors.white,
                       fontSize: 24,
                     ),
@@ -115,6 +107,7 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         'UTC $offsetSign $timezoneString',
                         style: const TextStyle(
+                          fontFamily: 'avenir',
                           color: Colors.white,
                           fontSize: 14,
                         ),
@@ -126,6 +119,32 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Padding buildMenuButton(String title, String image) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
+      child: TextButton(
+        onPressed: () {},
+        child: Column(
+          children: <Widget>[
+            Image.asset(
+              image,
+              scale: 1.5,
+            ),
+            const SizedBox(height: 16),
+            Text(
+              title,
+              style: const TextStyle(
+                fontFamily: 'avenir',
+                color: Colors.white,
+                fontSize: 14,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
