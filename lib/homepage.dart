@@ -41,14 +41,15 @@ class _HomePageState extends State<HomePage> {
       body: Row(
         children: <Widget>[
           Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TextButton(
                 onPressed: () {},
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: Column(
                   children: <Widget>[
-                    FlutterLogo(),
-                    Text(
+                    Image.asset('assets/clock_icon.png'),
+                    SizedBox(height: 16),
+                    const Text(
                       'Clock',
                       style: TextStyle(
                         color: Colors.white,
@@ -60,61 +61,68 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          Container(
-            padding: const EdgeInsets.all(32),
-            alignment: Alignment.center,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                const Text(
-                  'Clock',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
-                ),
-                const SizedBox(height: 32),
-                Text(
-                  formattedTime, // Use formattedTime here if needed
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 64,
-                  ),
-                ),
-                Text(
-                  formattedDate, // Use formattedDate here
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
-                const ClockView(),
-                const Text(
-                  'Timezone',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Row(
-                  children: <Widget>[
-                    const Icon(
-                      Icons.language,
+          const VerticalDivider(
+            color: Colors.white,
+            width: 1,
+          ),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 64),
+              alignment: Alignment.center,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const Text(
+                    'Clock',
+                    style: TextStyle(
                       color: Colors.white,
+                      fontSize: 24,
                     ),
-                    const SizedBox(
-                        width: 16), // Changed height to width for row alignment
-                    Text(
-                      'UTC $offsetSign $timezoneString',
-                      style: const TextStyle(
+                  ),
+                  const SizedBox(height: 32),
+                  Text(
+                    formattedTime, // Use formattedTime here if needed
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 64,
+                    ),
+                  ),
+                  Text(
+                    formattedDate, // Use formattedDate here
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                  const ClockView(),
+                  const Text(
+                    'Timezone',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: <Widget>[
+                      const Icon(
+                        Icons.language,
                         color: Colors.white,
-                        fontSize: 14,
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      const SizedBox(
+                          width:
+                              16), // Changed height to width for row alignment
+                      Text(
+                        'UTC $offsetSign $timezoneString',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],
