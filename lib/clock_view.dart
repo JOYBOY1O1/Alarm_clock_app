@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class ClockView extends StatefulWidget {
   final double? size;
 
-  const ClockView({Key? key, this.size}) : super(key: key);
+  const ClockView({super.key, this.size});
 
   @override
   _ClockViewState createState() => _ClockViewState();
@@ -16,7 +16,7 @@ class _ClockViewState extends State<ClockView> {
 
   @override
   void initState() {
-    this.timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {});
     });
     super.initState();
@@ -24,7 +24,7 @@ class _ClockViewState extends State<ClockView> {
 
   @override
   void dispose() {
-    this.timer.cancel();
+    timer.cancel();
     super.dispose();
   }
 

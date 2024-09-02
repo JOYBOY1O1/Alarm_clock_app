@@ -67,6 +67,7 @@ class _HomePageState extends State<HomePage> {
                       'Clock',
                       style: TextStyle(
                         fontFamily: 'avenir',
+                        fontWeight: FontWeight.w700,
                         color: Colors.white,
                         fontSize: 24,
                       ),
@@ -89,6 +90,7 @@ class _HomePageState extends State<HomePage> {
                           formattedDate, // Use formattedDate here
                           style: const TextStyle(
                             fontFamily: 'avenir',
+                            fontWeight: FontWeight.w700,
                             color: Colors.white,
                             fontSize: 20,
                           ),
@@ -97,17 +99,17 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Flexible(
-                    flex: 4,
+                    flex: 6,
                     fit: FlexFit.tight,
                     child: Align(
                       alignment: Alignment.center,
                       child: ClockView(
-                        size: 100,
+                        size: MediaQuery.of(context).size.height / 4,
                       ),
                     ),
                   ),
                   Flexible(
-                    flex: 2,
+                    flex: 3,
                     fit: FlexFit.tight,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,6 +118,7 @@ class _HomePageState extends State<HomePage> {
                           'Timezone',
                           style: TextStyle(
                             fontFamily: 'avenir',
+                            fontWeight: FontWeight.w500,
                             color: Colors.white,
                             fontSize: 24,
                           ),
