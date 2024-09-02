@@ -72,50 +72,76 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                  Text(
-                    formattedTime, // Use formattedTime here if needed
-                    style: const TextStyle(
-                      fontFamily: 'avenir',
-                      color: Colors.white,
-                      fontSize: 64,
-                    ),
-                  ),
-                  Text(
-                    formattedDate, // Use formattedDate here
-                    style: const TextStyle(
-                      fontFamily: 'avenir',
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                  ),
-                  const ClockView(),
-                  const Text(
-                    'Timezone',
-                    style: TextStyle(
-                      fontFamily: 'avenir',
-                      color: Colors.white,
-                      fontSize: 24,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: <Widget>[
-                      const Icon(
-                        Icons.language,
-                        color: Colors.white,
-                      ),
-                      const SizedBox(
-                          width:
-                              16), // Changed height to width for row alignment
-                      Text(
-                        'UTC $offsetSign $timezoneString',
-                        style: const TextStyle(
-                          fontFamily: 'avenir',
-                          color: Colors.white,
-                          fontSize: 14,
+                  Flexible(
+                    flex: 2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          formattedTime, // Use formattedTime here if needed
+                          style: const TextStyle(
+                            fontFamily: 'avenir',
+                            color: Colors.white,
+                            fontSize: 64,
+                          ),
                         ),
+                        Text(
+                          formattedDate, // Use formattedDate here
+                          style: const TextStyle(
+                            fontFamily: 'avenir',
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Flexible(
+                    flex: 4,
+                    fit: FlexFit.tight,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: ClockView(
+                        size: 100,
                       ),
-                    ],
+                    ),
+                  ),
+                  Flexible(
+                    flex: 2,
+                    fit: FlexFit.tight,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Timezone',
+                          style: TextStyle(
+                            fontFamily: 'avenir',
+                            color: Colors.white,
+                            fontSize: 24,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Row(
+                          children: <Widget>[
+                            const Icon(
+                              Icons.language,
+                              color: Colors.white,
+                            ),
+                            const SizedBox(
+                                width:
+                                    16), // Changed height to width for row alignment
+                            Text(
+                              'UTC $offsetSign $timezoneString',
+                              style: const TextStyle(
+                                fontFamily: 'avenir',
+                                color: Colors.white,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
